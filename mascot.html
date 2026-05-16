@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mascot GSR — Game Seru Rudolf</title>
+  <meta name="description" content="Maskot GSR — Wajah kosmik dari komunitas Game Seru Rudolf." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Mascot-page extras ── */
+
+    /* Showcase frame */
+    .mascot-showcase {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .mascot-showcase { grid-template-columns: 1fr; }
+    }
+
+    .mascot-frame {
+      background: var(--bg-card);
+      border: 1px solid rgba(59,130,246,.25);
+      border-radius: 26px;
+      padding: 50px 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 0 80px rgba(59,130,246,.12), 0 0 160px rgba(168,85,247,.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .mascot-frame::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--blue-bright), var(--purple-bright), transparent);
+    }
+
+    .mascot-figure {
+      position: relative;
+      width: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .m-orbit {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(59,130,246,.15);
+      width: 200px; height: 200px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: spinR 22s linear infinite;
+    }
+    .m-orbit-inner {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(168,85,247,.12);
+      width: 160px; height: 160px;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: spinR 14s linear infinite reverse;
+    }
+    .m-head {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(59,130,246,.4), rgba(168,85,247,.35));
+      border: 2px solid rgba(96,165,250,.6);
+      box-shadow: 0 0 30px rgba(59,130,246,.4), 0 0 60px rgba(59,130,246,.15);
+      animation: float 4.5s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+    .m-body {
+      width: 92px; height: 100px;
+      border-radius: 20px 20px 28px 28px;
+      background: linear-gradient(180deg, rgba(59,130,246,.22), rgba(168,85,247,.18));
+      border: 1.5px solid rgba(59,130,246,.3);
+      animation: float 4.5s ease-in-out infinite .25s;
+      position: relative;
+      z-index: 2;
+    }
+    .m-label {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--blue-bright);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .mascot-badge-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .mascot-badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 5px 14px;
+      border-radius: 50px;
+      background: rgba(59,130,246,.05);
+    }
+
+    /* Personality grid */
+    .personality-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .personality-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 22px;
+      backdrop-filter: blur(10px);
+      transition: border-color .3s, box-shadow .3s, transform .3s var(--ease);
+    }
+    .personality-card:hover {
+      border-color: rgba(168,85,247,.4);
+      box-shadow: 0 8px 30px rgba(0,0,0,.3), 0 0 20px rgba(168,85,247,.12);
+      transform: translateY(-4px);
+    }
+    .personality-card .emoji {
+      font-size: 26px;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .personality-card h4 {
+      font-size: 15px; font-weight: 700; color: var(--text);
+      margin-bottom: 8px;
+    }
+    .personality-card p {
+      font-size: 13px; color: var(--text-muted); line-height: 1.7;
+    }
+
+    /* Role timeline */
+    .role-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    @media (max-width: 640px) {
+      .role-grid { grid-template-columns: 1fr; }
+    }
+    .role-card {
+      background: linear-gradient(135deg, rgba(14,24,65,.7) 0%, rgba(22,10,55,.6) 100%);
+      border: 1px solid rgba(59,130,246,.2);
+      border-radius: 18px;
+      padding: 28px 26px;
+      position: relative;
+      overflow: hidden;
+    }
+    .role-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--blue-bright), var(--purple-bright));
+      border-radius: 0 2px 2px 0;
+    }
+    .role-card h4 {
+      font-size: 16px; font-weight: 700; color: var(--text);
+      margin-bottom: 10px; padding-left: 8px;
+    }
+    .role-card p {
+      font-size: 13.5px; color: var(--text-muted); line-height: 1.75;
+      padding-left: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ░░░ CANVAS + NEBULA ░░░ -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nebula-layer" aria-hidden="true"></div>
+
+  <div class="wrapper">
+
+    <!-- ════════════ NAVBAR ════════════ -->
+    <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="GSR Home">
+          <div class="nav-logo-badge">GSR</div>
+          <div class="nav-logo-text">
+            Game Seru – Rudolf
+            <small>Cosmic Identity</small>
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mascot.html" class="active">Mascot</a></li>
+          <li><a href="logo.html">Logo</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ════════════ DETAIL HEADER ════════════ -->
+    <header class="detail-header" aria-label="Page header">
+      <div class="container">
+        <a href="index.html" class="btn btn-back" style="margin-bottom: 36px; display: inline-flex;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="transform: rotate(180deg);">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <span>Kembali ke Home</span>
+        </a>
+        <p class="label">✦ Identity System</p>
+        <h1 class="title">
+          Maskot <span class="gradient-text">GSR</span>
+        </h1>
+        <p class="body-text">
+          Lebih dari sekadar karakter visual — maskot GSR adalah jiwa kosmik yang mewakili semangat, nilai,
+          dan identitas komunitas Game Seru Rudolf di seluruh semesta digital.
+        </p>
+      </div>
+    </header>
+
+    <!-- ════════════ SHOWCASE ════════════ -->
+    <section class="detail-section" aria-label="Mascot showcase">
+      <div class="container">
+        <div class="mascot-showcase">
+
+          <!-- Figure -->
+          <div data-reveal>
+            <div class="mascot-frame">
+              <div class="mascot-figure">
+                <div class="m-orbit"></div>
+                <div class="m-orbit-inner"></div>
+                <div class="m-head"></div>
+                <div class="m-body"></div>
+              </div>
+              <div class="m-label">GSR Mascot v2</div>
+              <div class="mascot-badge-row">
+                <span class="mascot-badge">Cosmic</span>
+                <span class="mascot-badge">Explorer</span>
+                <span class="mascot-badge">Guardian</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div data-reveal data-delay="2">
+            <p class="label">Profile</p>
+            <h2 class="title" style="font-size: clamp(24px, 3.5vw, 38px);">
+              Sang Penjaga<br/><span class="gradient-text">Semesta Digital</span>
+            </h2>
+            <p class="body-text" style="margin-bottom: 24px;">
+              Maskot GSR lahir dari visi untuk memberikan wajah nyata kepada komunitas — sosok yang mencerminkan
+              keberanian untuk bereksplorasi, kreativitas tanpa batas, dan kehangatan dalam setiap interaksi.
+            </p>
+            <div class="trait-list">
+              <div class="trait-item">
+                <div class="trait-dot"></div>
+                <span><strong style="color: var(--text);">Petualang Kosmik</strong> — Selalu siap menjelajahi frontier baru di dunia gaming dan komunitas digital.</span>
+              </div>
+              <div class="trait-item">
+                <div class="trait-dot" style="background: var(--purple-bright); box-shadow: 0 0 8px var(--purple-bright);"></div>
+                <span><strong style="color: var(--text);">Penjaga Identitas</strong> — Menjaga esensi dan nilai-nilai GSR tetap hidup di setiap konten dan platform.</span>
+              </div>
+              <div class="trait-item">
+                <div class="trait-dot" style="background: var(--cyan); box-shadow: 0 0 8px var(--cyan);"></div>
+                <span><strong style="color: var(--text);">Ikon Digital</strong> — Representasi visual yang membuat GSR mudah dikenal di seluruh jaringan komunitas.</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ════════════ PERSONALITY ════════════ -->
+    <section class="detail-section" aria-label="Mascot personality">
+      <div class="container">
+        <p class="label" data-reveal>Kepribadian</p>
+        <h2 class="title" data-reveal data-delay="1" style="margin-bottom: 36px;">
+          Karakter & <span class="gradient-text">Sifat</span>
+        </h2>
+        <div class="personality-grid">
+          <div class="personality-card" data-reveal data-delay="1">
+            <span class="emoji">🚀</span>
+            <h4>Adventurous</h4>
+            <p>Jiwa penjelajah yang tidak pernah takut menghadapi dunia baru, baik dalam game maupun dalam kreativitas komunitas.</p>
+          </div>
+          <div class="personality-card" data-reveal data-delay="2">
+            <span class="emoji">⚡</span>
+            <h4>Energetic</h4>
+            <p>Penuh semangat dan energi positif yang mampu menggerakkan komunitas menjadi lebih aktif dan dinamis setiap harinya.</p>
+          </div>
+          <div class="personality-card" data-reveal data-delay="3">
+            <span class="emoji">🌟</span>
+            <h4>Creative</h4>
+            <p>Mendorong inovasi dan ekspresi kreatif sebagai fondasi utama identitas GSR yang terus berkembang tanpa henti.</p>
+          </div>
+          <div class="personality-card" data-reveal data-delay="4">
+            <span class="emoji">🛡️</span>
+            <h4>Protective</h4>
+            <p>Menjaga nilai-nilai positif dan inklusivitas komunitas, memastikan setiap anggota merasa diterima dan dihargai.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ════════════ ROLE ════════════ -->
+    <section class="detail-section" aria-label="Mascot role">
+      <div class="container">
+        <p class="label" data-reveal>Peran</p>
+        <h2 class="title" data-reveal data-delay="1" style="margin-bottom: 36px;">
+          Fungsi dalam <span class="gradient-text">Ekosistem GSR</span>
+        </h2>
+        <div class="role-grid">
+          <div class="role-card" data-reveal data-delay="1">
+            <h4>Brand Ambassador</h4>
+            <p>Maskot tampil di seluruh media sosial, konten video, dan material promosi sebagai wajah utama yang mewakili GSR.</p>
+          </div>
+          <div class="role-card" data-reveal data-delay="2">
+            <h4>Community Symbol</h4>
+            <p>Menjadi simbol pemersatu yang memperkuat rasa kebersamaan dan kebanggaan anggota komunitas GSR.</p>
+          </div>
+          <div class="role-card" data-reveal data-delay="3">
+            <h4>Content Character</h4>
+            <p>Hadir dalam berbagai format konten — thumbnail, sticker, animasi — sebagai elemen visual yang konsisten.</p>
+          </div>
+          <div class="role-card" data-reveal data-delay="4">
+            <h4>Identity Anchor</h4>
+            <p>Menjangkar identitas visual GSR agar tetap kohesif dan mudah dikenali di lintas platform digital.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ════════════ HIGHLIGHT BOX ════════════ -->
+    <section class="detail-section" aria-label="Vision">
+      <div class="container">
+        <div class="info-highlight" data-reveal>
+          <p class="info-highlight-title">Visi di Balik Maskot</p>
+          <p>
+            Maskot GSR diciptakan dengan satu tujuan utama: memberikan jiwa kepada komunitas. Di era digital yang
+            semakin padat, identitas visual yang kuat adalah kunci untuk menonjol dan membangun loyalitas.
+            Maskot bukan sekadar gambar — ia adalah janji bahwa GSR hadir dengan serius, konsisten, dan penuh
+            semangat untuk terus berkembang bersama komunitasnya.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FOOTER ════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-inner">
+          <span class="footer-copy">© Game Seru – Rudolf &nbsp;·&nbsp; All rights reserved across the cosmos.</span>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="mascot.html">Mascot</a>
+            <a href="logo.html">Logo</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>

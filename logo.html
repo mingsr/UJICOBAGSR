@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo GSR — Game Seru Rudolf</title>
+  <meta name="description" content="Evolusi Logo GSR — Perjalanan visual identitas Game Seru Rudolf." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Logo-page extras ── */
+
+    /* Logo version cards */
+    .logo-version-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 760px) {
+      .logo-version-grid { grid-template-columns: 1fr; }
+    }
+
+    .logo-version-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 36px 28px;
+      backdrop-filter: blur(14px);
+      text-align: center;
+      transition: border-color .35s, box-shadow .35s, transform .35s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo-version-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 1.5px;
+      opacity: 0;
+      transition: opacity .35s;
+      background: linear-gradient(90deg, transparent, var(--blue-bright), transparent);
+    }
+    .logo-version-card:hover {
+      border-color: rgba(59,130,246,.4);
+      box-shadow: 0 12px 50px rgba(0,0,0,.4), 0 0 30px rgba(59,130,246,.13);
+      transform: translateY(-6px);
+    }
+    .logo-version-card:hover::before { opacity: 1; }
+    .logo-version-card.current {
+      border-color: rgba(59,130,246,.35);
+      background: linear-gradient(160deg, rgba(14,24,65,.75) 0%, rgba(22,10,55,.7) 100%);
+    }
+    .logo-version-card.current::before { opacity: .7; }
+
+    .logo-version-num {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .current .logo-version-num { color: var(--blue-bright); }
+
+    /* Logo shape variants */
+    .logo-shape-v1 {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: rgba(59,130,246,.15);
+      border: 2px solid rgba(59,130,246,.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: rgba(255,255,255,.6);
+      margin: 0 auto 20px;
+    }
+    .logo-shape-v2 {
+      width: 70px; height: 70px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(59,130,246,.2), rgba(168,85,247,.2));
+      border: 2px solid rgba(168,85,247,.35);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: rgba(255,255,255,.75);
+      margin: 0 auto 20px;
+    }
+    .logo-shape-v3 {
+      width: 74px; height: 74px;
+      background: linear-gradient(135deg, rgba(59,130,246,.35), rgba(168,85,247,.3));
+      clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; font-weight: 900; color: rgba(255,255,255,.9);
+      margin: 0 auto 20px;
+      box-shadow: 0 0 35px rgba(59,130,246,.35);
+      animation: logoPulse 3.5s ease-in-out infinite;
+    }
+    .logo-version-card h3 {
+      font-size: 16px; font-weight: 700; color: var(--text);
+      margin-bottom: 10px;
+    }
+    .logo-version-card p {
+      font-size: 13px; color: var(--text-muted); line-height: 1.75;
+    }
+    .current-badge {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 50px;
+      background: rgba(59,130,246,.15);
+      color: var(--blue-bright);
+      border: 1px solid rgba(59,130,246,.3);
+      margin-bottom: 16px;
+    }
+
+    /* Philosophy section */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (max-width: 860px) {
+      .philosophy-grid { grid-template-columns: 1fr; }
+    }
+
+    .philosophy-visual {
+      position: relative;
+      height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .phil-rings {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(59,130,246,.13);
+      animation: spinR linear infinite;
+    }
+    .phil-r1 { width: 260px; height: 260px; animation-duration: 30s; }
+    .phil-r2 { width: 200px; height: 200px; animation-duration: 20s; animation-direction: reverse; border-color: rgba(168,85,247,.1); }
+    .phil-r3 { width: 150px; height: 150px; animation-duration: 14s; border-style: dashed; border-color: rgba(34,211,238,.1); }
+    .phil-core {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, rgba(59,130,246,.35), rgba(168,85,247,.3));
+      clip-path: polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 900; color: #fff;
+      box-shadow: 0 0 60px rgba(59,130,246,.4);
+      animation: float 5s ease-in-out infinite, logoPulse 3.5s ease-in-out infinite;
+      position: relative; z-index: 2;
+    }
+    .phil-label {
+      position: absolute;
+      font-size: 9.5px; letter-spacing: 2.5px;
+      color: var(--text-dim); text-transform: uppercase;
+    }
+    .phil-label.top    { top: 22px; }
+    .phil-label.bottom { bottom: 22px; }
+    .phil-label.left   { left: 8px; }
+    .phil-label.right  { right: 8px; }
+
+    /* Color palette */
+    .palette-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .palette-swatch {
+      flex: 1;
+      min-width: 90px;
+      border-radius: 12px;
+      padding: 16px 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .swatch-dot {
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      margin-bottom: 2px;
+    }
+    .swatch-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .swatch-hex  { font-size: 11px; color: var(--text-dim); font-family: monospace; letter-spacing: 1px; }
+
+    .s-blue   { background: rgba(59,130,246,.07);  border: 1px solid rgba(59,130,246,.2); }
+    .s-purple { background: rgba(168,85,247,.07);  border: 1px solid rgba(168,85,247,.2); }
+    .s-cyan   { background: rgba(34,211,238,.07);  border: 1px solid rgba(34,211,238,.2); }
+    .s-dark   { background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.08); }
+
+    .dot-blue   { background: #3b82f6; box-shadow: 0 0 12px rgba(59,130,246,.6); }
+    .dot-purple { background: #a855f7; box-shadow: 0 0 12px rgba(168,85,247,.6); }
+    .dot-cyan   { background: #22d3ee; box-shadow: 0 0 12px rgba(34,211,238,.6); }
+    .dot-dark   { background: #050816; border: 1.5px solid rgba(255,255,255,.15); }
+  </style>
+</head>
+<body>
+
+  <!-- ░░░ CANVAS + NEBULA ░░░ -->
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <div class="nebula-layer" aria-hidden="true"></div>
+
+  <div class="wrapper">
+
+    <!-- ════════════ NAVBAR ════════════ -->
+    <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Main navigation">
+      <div class="container nav-inner">
+        <a href="index.html" class="nav-logo" aria-label="GSR Home">
+          <div class="nav-logo-badge">GSR</div>
+          <div class="nav-logo-text">
+            Game Seru – Rudolf
+            <small>Cosmic Identity</small>
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks" role="list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="mascot.html">Mascot</a></li>
+          <li><a href="logo.html" class="active">Logo</a></li>
+        </ul>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- ════════════ DETAIL HEADER ════════════ -->
+    <header class="detail-header" aria-label="Page header">
+      <div class="container">
+        <a href="index.html" class="btn btn-back" style="margin-bottom: 36px; display: inline-flex;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="transform: rotate(180deg);">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+          <span>Kembali ke Home</span>
+        </a>
+        <p class="label">✦ Visual Identity</p>
+        <h1 class="title">
+          Evolusi Logo <span class="gradient-text">GSR</span>
+        </h1>
+        <p class="body-text">
+          Setiap versi logo GSR menceritakan sebuah babak — perjalanan dari identitas awal yang sederhana
+          menuju desain kosmik yang kini menjadi simbol komunitas di seluruh platform digital.
+        </p>
+      </div>
+    </header>
+
+    <!-- ════════════ VERSION CARDS ════════════ -->
+    <section class="detail-section" aria-label="Logo versions">
+      <div class="container">
+        <p class="label" data-reveal>Perjalanan Desain</p>
+        <h2 class="title" data-reveal data-delay="1" style="margin-bottom: 36px;">
+          Tiga Era <span class="gradient-text">Logo GSR</span>
+        </h2>
+        <div class="logo-version-grid">
+
+          <!-- v1 -->
+          <div class="logo-version-card" data-reveal data-delay="1">
+            <div class="logo-version-num">Versi 01 · 2022</div>
+            <div class="logo-shape-v1">GSR</div>
+            <h3>The Origin</h3>
+            <p>Logo pertama GSR — sederhana, lugas, dan jujur. Dirancang cepat sebagai identitas awal untuk membangun eksistensi komunitas dari nol.</p>
+          </div>
+
+          <!-- v2 -->
+          <div class="logo-version-card" data-reveal data-delay="2">
+            <div class="logo-version-num">Versi 02 · 2023</div>
+            <div class="logo-shape-v2">GSR</div>
+            <h3>The Transition</h3>
+            <p>Era transisi membawa sentuhan gradient dan bentuk yang lebih modern. GSR mulai membangun bahasa visual yang lebih kuat dan berkarakter.</p>
+          </div>
+
+          <!-- v3 current -->
+          <div class="logo-version-card current" data-reveal data-delay="3">
+            <div class="current-badge">✦ Active</div>
+            <div class="logo-version-num">Versi 03 · 2024–kini</div>
+            <div class="logo-shape-v3">GSR</div>
+            <h3>The Cosmic Form</h3>
+            <p>Bentuk heksagonal kosmik mencerminkan sempurna visi GSR: futuristik, kuat, dan tak terbatas — seperti semesta itu sendiri.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ════════════ TIMELINE ════════════ -->
+    <section class="detail-section" aria-label="Logo timeline">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;" class="timeline-layout">
+          <div data-reveal>
+            <p class="label">Timeline</p>
+            <h2 class="title" style="font-size: clamp(24px,3.5vw,38px); margin-bottom: 36px;">
+              Milestone <span class="gradient-text">Visual</span>
+            </h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-era">Desember 2022</div>
+                <h3>Kelahiran Logo Pertama</h3>
+                <p>Logo GSR pertama kali diperkenalkan kepada publik. Sederhana dan fokus pada keterbacaan nama.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-era">Maret 2023</div>
+                <h3>Redesign Pertama</h3>
+                <p>Iterasi kedua lahir seiring pertumbuhan komunitas — membawa warna yang lebih hidup dan bentuk yang lebih berani.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-era">Januari 2024</div>
+                <h3>Cosmic Rebrand</h3>
+                <p>Rebranding besar-besaran menuju estetika cosmic — bentuk heksagonal, palet neon biru-ungu, dan filosofi ruang angkasa digital.</p>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-dot" style="background: var(--cyan); box-shadow: 0 0 10px var(--cyan);"></div>
+                <div class="timeline-era">Sekarang</div>
+                <h3>Logo v3 Aktif</h3>
+                <p>Logo versi ketiga kini digunakan di semua platform dan terus dioptimalkan untuk berbagai ukuran dan konteks tampilan.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Philosophy visual -->
+          <div data-reveal data-delay="2">
+            <p class="label">Filosofi</p>
+            <h2 class="title" style="font-size: clamp(24px,3.5vw,38px); margin-bottom: 36px;">
+              Makna di <span class="gradient-text">Balik Simbol</span>
+            </h2>
+            <div class="philosophy-visual">
+              <div class="phil-rings phil-r1"></div>
+              <div class="phil-rings phil-r2"></div>
+              <div class="phil-rings phil-r3"></div>
+              <div class="phil-core">GSR</div>
+              <span class="phil-label top">Ambisi</span>
+              <span class="phil-label bottom">Fondasi</span>
+              <span class="phil-label left" style="writing-mode: vertical-rl; text-orientation: mixed;">Kreasi</span>
+              <span class="phil-label right" style="writing-mode: vertical-rl; text-orientation: mixed;">Komunitas</span>
+            </div>
+            <div class="trait-list" style="margin-top: 24px;">
+              <div class="trait-item">
+                <div class="trait-dot"></div>
+                <span><strong style="color: var(--text);">Heksagon</strong> — melambangkan kekuatan, presisi, dan struktur yang sempurna.</span>
+              </div>
+              <div class="trait-item">
+                <div class="trait-dot" style="background: var(--purple-bright); box-shadow: 0 0 8px var(--purple-bright);"></div>
+                <span><strong style="color: var(--text);">Gradient Kosmik</strong> — mewakili ekspansi tanpa batas dan semangat eksplorasi.</span>
+              </div>
+              <div class="trait-item">
+                <div class="trait-dot" style="background: var(--cyan); box-shadow: 0 0 8px var(--cyan);"></div>
+                <span><strong style="color: var(--text);">Tipografi GSR</strong> — singkatan yang kuat, mudah dikenali, dan berenergi tinggi.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      @media (max-width: 760px) {
+        .timeline-layout { grid-template-columns: 1fr !important; }
+      }
+    </style>
+
+    <div class="divider"></div>
+
+    <!-- ════════════ COLOR PALETTE ════════════ -->
+    <section class="detail-section" aria-label="Color palette">
+      <div class="container">
+        <p class="label" data-reveal>Palet Warna</p>
+        <h2 class="title" data-reveal data-delay="1" style="margin-bottom: 36px;">
+          Identitas <span class="gradient-text">Warna GSR</span>
+        </h2>
+        <div class="palette-row" data-reveal data-delay="2">
+          <div class="palette-swatch s-blue">
+            <div class="swatch-dot dot-blue"></div>
+            <span class="swatch-name">Cosmic Blue</span>
+            <span class="swatch-hex">#3B82F6</span>
+          </div>
+          <div class="palette-swatch s-purple">
+            <div class="swatch-dot dot-purple"></div>
+            <span class="swatch-name">Nebula Purple</span>
+            <span class="swatch-hex">#A855F7</span>
+          </div>
+          <div class="palette-swatch s-cyan">
+            <div class="swatch-dot dot-cyan"></div>
+            <span class="swatch-name">Star Cyan</span>
+            <span class="swatch-hex">#22D3EE</span>
+          </div>
+          <div class="palette-swatch s-dark">
+            <div class="swatch-dot dot-dark"></div>
+            <span class="swatch-name">Deep Space</span>
+            <span class="swatch-hex">#050816</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ════════════ USAGE HIGHLIGHT ════════════ -->
+    <section class="detail-section" aria-label="Logo usage">
+      <div class="container">
+        <div class="info-highlight" data-reveal>
+          <p class="info-highlight-title">Panduan Penggunaan Logo</p>
+          <p>
+            Logo GSR harus selalu digunakan dengan latar gelap untuk mempertahankan kesan kosmik yang kuat.
+            Jangan modifikasi warna, proporsional, atau bentuk logo tanpa persetujuan tim. Logo tersedia dalam
+            format PNG, SVG, dan WebP untuk berbagai kebutuhan — dari thumbnail YouTube hingga merchandise
+            komunitas. Pastikan zona aman minimal setara dengan tinggi huruf "G" di setiap sisi logo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ FOOTER ════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-inner">
+          <span class="footer-copy">© Game Seru – Rudolf &nbsp;·&nbsp; All rights reserved across the cosmos.</span>
+          <nav class="footer-links" aria-label="Footer navigation">
+            <a href="index.html">Home</a>
+            <a href="mascot.html">Mascot</a>
+            <a href="logo.html">Logo</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /wrapper -->
+
+  <script src="script.js"></script>
+</body>
+</html>
