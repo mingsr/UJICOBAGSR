@@ -3,523 +3,184 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GSR — Game Seru Rudolf</title>
-  <meta name="description" content="Game Seru Rudolf — Cosmic Digital Identity. Komunitas digital bertema luar angkasa." />
-  <link rel="stylesheet" href="style.css" />
+  <title>Information — GSR Universe</title>
+  <meta name="description" content="Pusat Informasi GSR — berita, pengumuman, dan update terkini." />
+  <link rel="stylesheet" href="../style.css" />
 </head>
 <body>
 
-  <!-- ░░░ CANVAS STARFIELD ░░░ -->
   <canvas id="starfield" aria-hidden="true"></canvas>
   <div class="nebula-layer" aria-hidden="true"></div>
 
   <div class="wrapper">
 
-    <!-- ════════════════════ NAVBAR ════════════════════ -->
-    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+    <!-- ════════════ NAVBAR ════════════ -->
+    <nav class="navbar scrolled" id="navbar" role="navigation" aria-label="Main navigation">
       <div class="container nav-inner">
 
-        <!-- Logo (image-based) -->
-        <a href="index.html" class="nav-logo" aria-label="GSR Home">
-          <!-- Icon logo (gsr_logo.png) -->
-          <img
-            src="gsr_logo.png"
-            alt="GSR Icon"
-            class="nav-logo-img-icon"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-          />
-          <!-- Fallback badge jika gsr_logo.png tidak ada -->
+        <a href="../" class="nav-logo" aria-label="GSR Home">
+          <img src="../gsr_logo.png" alt="GSR Icon" class="nav-logo-img-icon"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
           <div class="nav-logo-badge" style="display:none;">GSR</div>
-
-          <!-- Wordmark logo (gaseru_logo.png) -->
-          <img
-            src="gaseru_logo.png"
-            alt="Game Seru – Rudolf"
-            class="nav-logo-img-text"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-          />
-          <!-- Fallback text jika gaseru_logo.png tidak ada -->
+          <img src="../gaseru_logo.png" alt="Game Seru – Rudolf" class="nav-logo-img-text"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
           <div class="nav-logo-text-fallback" style="display:none;">
-            Game Seru – Rudolf
-            <small>Cosmic Identity</small>
+            Game Seru – Rudolf<small>Cosmic Identity</small>
           </div>
         </a>
 
-        <!-- Desktop links — 7 menu lengkap -->
         <ul class="nav-links" id="navLinks" role="list">
-          <li><a href="#home"        class="active">Home</a></li>
-          <li><a href="#identity">Identity</a></li>
-          <li><a href="#mascot">Mascot</a></li>
-          <li><a href="#logo">Logo</a></li>
-          <li><a href="#information">Information</a></li>
-          <li><a href="#community">Community</a></li>
-          <li><a href="#support">Support</a></li>
+          <li><a href="../#home">Home</a></li>
+          <li><a href="../#identity">Identity</a></li>
+          <li><a href="../mascot.html">Mascot</a></li>
+          <li><a href="../logo.html">Logo</a></li>
+          <li><a href="../#information" class="active">Information</a></li>
+          <li><a href="../#community">Community</a></li>
+          <li><a href="../#support">Support</a></li>
         </ul>
 
-        <!-- Mobile toggle -->
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
         </button>
 
       </div>
     </nav>
 
-    <!-- ════════════════════ HERO ════════════════════ -->
-    <section id="home" class="hero" aria-label="Hero section">
-
-      <div class="hero-content">
-
-        <!-- Spinning GSR emblem -->
-        <div class="hero-emblem" aria-hidden="true">
-          <div class="hero-emblem-ring ring-a"></div>
-          <div class="hero-emblem-ring ring-b"></div>
-          <div class="hero-emblem-ring ring-c"></div>
-          <!-- Icon logo di tengah emblem -->
-          <div class="hero-emblem-core">
-            <img
-              src="gsr_logo.png"
-              alt="GSR"
-              class="hero-emblem-img"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';"
-            />
-            <span class="hero-emblem-fallback" style="display:none;">GSR</span>
-          </div>
-        </div>
-
-        <span class="hero-kicker">✦ GSR Universe ✦</span>
-
-        <!-- Wordmark logo sebagai H1 (gambar) -->
-        <h1 class="hero-title-img" aria-label="Game Seru – Rudolf">
-          <img
-            src="gaseru_logo.png"
-            alt="Game Seru – Rudolf"
-            class="hero-logo-img"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" loading="eager"
-          />
-          <!-- Fallback teks jika gambar tidak ada -->
-          <span class="hero-title-fallback gradient-text" style="display:none;">Game Seru – Rudolf</span>
-        </h1>
-
-        <!-- Subtitle baru dengan efek futuristik -->
-        <p class="hero-sub hero-sub-neon">Selamat Datang di GSR Universe</p>
-
-        <div class="hero-cta">
-          <a href="#identity" class="btn btn-primary">
-            <span>Jelajahi GSR</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-          <a href="#mascot" class="btn btn-ghost">Lihat Mascot</a>
-        </div>
-
-      </div>
-
-      <!-- Scroll indicator (enhanced) -->
-      <div class="scroll-indicator" aria-hidden="true">
-        <span class="scroll-label">Scroll</span>
-        <div class="scroll-arrow-wrap">
-          <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- ════════════ HEADER ════════════ -->
+    <header class="detail-header">
+      <div class="container">
+        <a href="../" class="btn-back">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
-        </div>
+          Kembali ke Home
+        </a>
+        <p class="label" style="margin-top: 32px;">✦ GSR Universe</p>
+        <h1 class="title">
+          Pusat <span class="gradient-text">Informasi GSR</span>
+        </h1>
+        <p class="body-text">
+          Semua berita, pengumuman, dan update terkini dari semesta GSR dikumpulkan di sini.
+          Jangan sampai ketinggalan satu pun momen penting komunitas.
+        </p>
       </div>
+    </header>
 
-    </section>
-
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ IDENTITY PREVIEW ════════════════════ -->
-    <section id="identity" class="preview-section" aria-label="Identity preview">
+    <!-- ════════════ PINNED ANNOUNCEMENT ════════════ -->
+    <section class="detail-section">
       <div class="container">
-
-        <div class="preview-visual" data-reveal>
-          <div class="preview-card-frame">
-            <div class="preview-gfx">
-              <!-- Identity: abstract DNA / pulse graphic -->
-              <div class="gfx-identity">
-                <div class="gfx-id-ring r1"></div>
-                <div class="gfx-id-ring r2"></div>
-                <div class="gfx-id-core">
-                  <span>ID</span>
-                </div>
-                <div class="gfx-id-dot d1"></div>
-                <div class="gfx-id-dot d2"></div>
-                <div class="gfx-id-dot d3"></div>
-              </div>
-            </div>
-            <div class="preview-stats">
-              <div class="preview-stat">
-                <div class="preview-stat-val">GSR</div>
-                <div class="preview-stat-label">Brand</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">⬡</div>
-                <div class="preview-stat-label">System</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">∞</div>
-                <div class="preview-stat-label">Universe</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="preview-text" data-reveal data-delay="2">
-          <span class="label">✦ Section 01</span>
-          <h2 class="title">
-            Identitas<br/>
-            <span class="gradient-text">Komunitas GSR</span>
-          </h2>
-          <p class="body-text">
-            GSR bukan sekadar nama — ini adalah sistem identitas digital yang lengkap. Dari visual, bahasa,
-            hingga budaya komunitas, semuanya dirancang sebagai satu ekosistem kosmik yang kohesif dan berkarakter.
+        <p class="label" data-reveal>📌 Pengumuman Utama</p>
+        <div class="info-highlight" data-reveal data-delay="1">
+          <p class="info-highlight-title">🚀 GSR Cosmic Rebrand — Identitas Baru Telah Hadir</p>
+          <p>
+            GSR resmi merilis identitas visual kosmik terbarunya. Logo, maskot, palet warna, dan sistem desain
+            telah diperbarui secara menyeluruh untuk mencerminkan visi komunitas yang lebih besar, lebih premium,
+            dan lebih futuristik dari sebelumnya. Selamat datang di era baru GSR Universe.
           </p>
-          <p class="body-text" style="font-size:14px; color: var(--text-dim); margin-top: -4px;">
-            Pelajari dasar filosofi, nilai inti, dan arah visi yang membangun GSR sebagai komunitas digital terdepan.
-          </p>
-          <a href="#mascot" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">
-            <span>Explore Identity</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
         </div>
-
       </div>
     </section>
 
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ MASCOT PREVIEW ════════════════════ -->
-    <section id="mascot" class="preview-section reverse" aria-label="Mascot preview">
+    <!-- ════════════ UPDATE CARDS ════════════ -->
+    <section class="detail-section" style="padding-top: 0;">
       <div class="container">
+        <p class="label" data-reveal>✦ Update Terbaru</p>
+        <h2 class="title" data-reveal data-delay="1" style="margin-bottom: 32px;">
+          Berita & <span class="gradient-text">Pengumuman</span>
+        </h2>
 
-        <div class="preview-visual" data-reveal>
-          <div class="preview-card-frame">
-            <div class="preview-gfx">
-              <div class="gfx-mascot">
-                <div class="gfx-mascot-glow"></div>
-                <div class="gfx-mascot-head"></div>
-                <div class="gfx-mascot-body"></div>
-              </div>
-            </div>
-            <div class="preview-stats">
-              <div class="preview-stat">
-                <div class="preview-stat-val">GSR</div>
-                <div class="preview-stat-label">Identity</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">✦</div>
-                <div class="preview-stat-label">Cosmic</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">∞</div>
-                <div class="preview-stat-label">Universe</div>
-              </div>
-            </div>
-          </div>
+        <div class="info-card-grid">
+
+          <article class="info-card" data-reveal data-delay="1">
+            <span class="info-card-tag">Pengumuman</span>
+            <div class="info-card-date">18 Mei 2025</div>
+            <h3>Website Resmi GSR Diluncurkan</h3>
+            <p>
+              Portal digital resmi GSR kini hadir dengan tampilan kosmik futuristik. Akses semua informasi,
+              identitas, dan komunitas GSR dalam satu semesta digital.
+            </p>
+            <span class="info-card-link">Baca selengkapnya →</span>
+          </article>
+
+          <article class="info-card" data-reveal data-delay="2">
+            <span class="info-card-tag purple">Update</span>
+            <div class="info-card-date">10 Mei 2025</div>
+            <h3>Maskot GSR Generasi Terbaru Dirilis</h3>
+            <p>
+              Maskot GSR hadir dalam wujud baru yang lebih ekspresif dan kosmik. Desain karakter diperbarui
+              sesuai arah estetika visual GSR yang semakin futuristik.
+            </p>
+            <span class="info-card-link">Baca selengkapnya →</span>
+          </article>
+
+          <article class="info-card" data-reveal data-delay="3">
+            <span class="info-card-tag cyan">Event</span>
+            <div class="info-card-date">1 Mei 2025</div>
+            <h3>Kontes Kreativitas Komunitas GSR</h3>
+            <p>
+              Komunitas GSR menggelar kontes kreativitas pertama — fanart, video, dan konten bertema kosmik
+              dengan total hadiah menarik untuk para pemenang.
+            </p>
+            <span class="info-card-link">Baca selengkapnya →</span>
+          </article>
+
+          <article class="info-card" data-reveal data-delay="1">
+            <span class="info-card-tag">Update</span>
+            <div class="info-card-date">20 Apr 2025</div>
+            <h3>Logo GSR v3 — Forma Kosmik Final</h3>
+            <p>
+              Iterasi ketiga logo GSR diresmikan dengan bentuk heksagonal dan palet neon biru-ungu yang
+              menjadi identitas visual utama komunitas.
+            </p>
+            <span class="info-card-link">Baca selengkapnya →</span>
+          </article>
+
+          <article class="info-card" data-reveal data-delay="2">
+            <span class="info-card-tag purple">Komunitas</span>
+            <div class="info-card-date">10 Apr 2025</div>
+            <h3>GSR Community Network Terbuka</h3>
+            <p>
+              Jaringan komunitas GSR kini terbuka lebar untuk semua anggota baru. Bergabung, berkontribusi,
+              dan jadilah bagian dari semesta kosmik ini.
+            </p>
+            <span class="info-card-link">Baca selengkapnya →</span>
+          </article>
+
+          <article class="info-card" data-reveal data-delay="3">
+            <span class="info-card-tag cyan">Roadmap</span>
+            <div class="info-card-date">1 Apr 2025</div>
+            <h3>Roadmap GSR 2025 — Visi Kosmik</h3>
+            <p>
+              Tim GSR merilis roadmap resmi untuk 2025 — mencakup ekspansi platform, konten eksklusif,
+              dan pengembangan sistem identitas komunitas lebih lanjut.
+            </p>
+            <span class="info-card-link">Baca selengkapnya →</span>
+          </article>
+
         </div>
-
-        <div class="preview-text" data-reveal data-delay="2">
-          <span class="label">✦ Section 02</span>
-          <h2 class="title">
-            Maskot<br/>
-            <span class="gradient-text">GSR</span>
-          </h2>
-          <p class="body-text">
-            Maskot GSR adalah wujud visual dari semangat eksplorasi kosmik yang menjadi jiwa komunitas ini.
-            Lebih dari sekadar karakter — ia adalah identitas, simbol, dan penjaga semesta digital GSR
-            yang hadir di setiap konten dan momen komunitas.
-          </p>
-          <p class="body-text" style="font-size:14px; color: var(--text-dim); margin-top: -4px;">
-            Pelajari lebih lanjut tentang latar belakang, kepribadian, dan peran maskot GSR.
-          </p>
-          <a href="mascot.html" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">
-            <span>Explore Mascot</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
       </div>
     </section>
 
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ LOGO PREVIEW ════════════════════ -->
-    <section id="logo" class="preview-section" aria-label="Logo preview">
-      <div class="container">
-
-        <div class="preview-visual" data-reveal>
-          <div class="preview-card-frame">
-            <div class="preview-gfx">
-              <div class="gfx-logo">
-                <div class="gfx-logo-hex">
-                  <div class="gfx-logo-shape">GSR</div>
-                  <div class="gfx-rings"></div>
-                </div>
-              </div>
-            </div>
-            <div class="preview-stats">
-              <div class="preview-stat">
-                <div class="preview-stat-val">3+</div>
-                <div class="preview-stat-label">Evolusi</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">◈</div>
-                <div class="preview-stat-label">Design</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">v3</div>
-                <div class="preview-stat-label">Current</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="preview-text" data-reveal data-delay="2">
-          <span class="label">✦ Section 03</span>
-          <h2 class="title">
-            Logo<br/>
-            <span class="gradient-text">Evolusi GSR</span>
-          </h2>
-          <p class="body-text">
-            Logo GSR bukan sekadar gambar — ini adalah perjalanan panjang sebuah identitas visual yang terus
-            berkembang. Dari versi pertama yang sederhana hingga desain kosmik yang kini memimpin estetika komunitas.
-          </p>
-          <p class="body-text" style="font-size:14px; color: var(--text-dim); margin-top: -4px;">
-            Temukan filosofi desain, makna simbol, dan roadmap visual di balik logo GSR.
-          </p>
-          <a href="logo.html" class="btn btn-primary" style="align-self: flex-start; margin-top: 8px;">
-            <span>Explore Logo</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ INFORMATION PREVIEW ════════════════════ -->
-    <section id="information" class="preview-section reverse" aria-label="Information preview">
-      <div class="container">
-
-        <div class="preview-visual" data-reveal>
-          <div class="preview-card-frame">
-            <div class="preview-gfx">
-              <div class="gfx-info">
-                <div class="gfx-info-screen">
-                  <div class="gfx-info-line l1"></div>
-                  <div class="gfx-info-line l2"></div>
-                  <div class="gfx-info-line l3"></div>
-                  <div class="gfx-info-dot"></div>
-                </div>
-              </div>
-            </div>
-            <div class="preview-stats">
-              <div class="preview-stat">
-                <div class="preview-stat-val">📡</div>
-                <div class="preview-stat-label">Live</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">∞</div>
-                <div class="preview-stat-label">Updates</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">GSR</div>
-                <div class="preview-stat-label">News</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="preview-text" data-reveal data-delay="2">
-          <span class="label">✦ Section 04</span>
-          <h2 class="title">
-            Pusat<br/>
-            <span class="gradient-text">Informasi GSR</span>
-          </h2>
-          <p class="body-text">
-            Dapatkan semua berita, pengumuman, dan update terkini dari GSR di satu tempat. Mulai dari
-            rilis konten baru, event komunitas, hingga perkembangan terbaru identitas digital GSR.
-          </p>
-          <p class="body-text" style="font-size:14px; color: var(--text-dim); margin-top: -4px;">
-            Tetap terhubung dengan semua hal yang terjadi di semesta GSR.
-          </p>
-          <a href="information/" class="btn btn-detail" style="align-self: flex-start; margin-top: 8px;">
-            <span>Lihat Detail</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ COMMUNITY PREVIEW ════════════════════ -->
-    <section id="community" class="preview-section" aria-label="Community preview">
-      <div class="container">
-
-        <div class="preview-visual" data-reveal>
-          <div class="preview-card-frame">
-            <div class="preview-gfx">
-              <div class="gfx-community">
-                <div class="gfx-comm-node n-center"></div>
-                <div class="gfx-comm-node n1"></div>
-                <div class="gfx-comm-node n2"></div>
-                <div class="gfx-comm-node n3"></div>
-                <div class="gfx-comm-node n4"></div>
-                <div class="gfx-comm-line cl1"></div>
-                <div class="gfx-comm-line cl2"></div>
-                <div class="gfx-comm-line cl3"></div>
-                <div class="gfx-comm-line cl4"></div>
-              </div>
-            </div>
-            <div class="preview-stats">
-              <div class="preview-stat">
-                <div class="preview-stat-val">🌐</div>
-                <div class="preview-stat-label">Network</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">∞</div>
-                <div class="preview-stat-label">Members</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">✦</div>
-                <div class="preview-stat-label">Active</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="preview-text" data-reveal data-delay="2">
-          <span class="label">✦ Section 05</span>
-          <h2 class="title">
-            Jaringan<br/>
-            <span class="gradient-text">Komunitas GSR</span>
-          </h2>
-          <p class="body-text">
-            Bergabunglah dengan ribuan anggota komunitas GSR yang tersebar di seluruh platform digital.
-            Satu semesta, satu komunitas — bersama kita membangun identitas gaming yang lebih besar dan bermakna.
-          </p>
-          <p class="body-text" style="font-size:14px; color: var(--text-dim); margin-top: -4px;">
-            Temukan cara bergabung, berinteraksi, dan berkontribusi dalam ekosistem GSR.
-          </p>
-          <a href="community/" class="btn btn-detail" style="align-self: flex-start; margin-top: 8px;">
-            <span>Lihat Detail</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ SUPPORT PREVIEW ════════════════════ -->
-    <section id="support" class="preview-section reverse" aria-label="Support preview">
-      <div class="container">
-
-        <div class="preview-visual" data-reveal>
-          <div class="preview-card-frame">
-            <div class="preview-gfx">
-              <div class="gfx-support">
-                <div class="gfx-sup-shield">
-                  <svg viewBox="0 0 60 70" fill="none" xmlns="http://www.w3.org/2000/svg" class="gfx-sup-svg">
-                    <path d="M30 4L6 14v18c0 14 10 26 24 30 14-4 24-16 24-30V14L30 4z" stroke="rgba(96,165,250,0.5)" stroke-width="2" fill="rgba(59,130,246,0.08)"/>
-                    <path d="M30 4L6 14v18c0 14 10 26 24 30 14-4 24-16 24-30V14L30 4z" stroke="rgba(168,85,247,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
-                    <circle cx="30" cy="33" r="8" fill="rgba(96,165,250,0.2)" stroke="rgba(96,165,250,0.6)" stroke-width="1.5"/>
-                    <path d="M27 33l2 2 4-4" stroke="rgba(96,165,250,0.9)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  <div class="gfx-sup-pulse"></div>
-                </div>
-              </div>
-            </div>
-            <div class="preview-stats">
-              <div class="preview-stat">
-                <div class="preview-stat-val">24/7</div>
-                <div class="preview-stat-label">Support</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">🛡️</div>
-                <div class="preview-stat-label">Safe</div>
-              </div>
-              <div class="preview-stat">
-                <div class="preview-stat-val">✓</div>
-                <div class="preview-stat-label">Verified</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="preview-text" data-reveal data-delay="2">
-          <span class="label">✦ Section 06</span>
-          <h2 class="title">
-            Sistem<br/>
-            <span class="gradient-text">Support GSR</span>
-          </h2>
-          <p class="body-text">
-            GSR hadir untuk mendukungmu di setiap langkah. Temukan panduan, FAQ, dan layanan bantuan yang
-            dirancang untuk memastikan pengalaman terbaikmu di dalam semesta GSR.
-          </p>
-          <p class="body-text" style="font-size:14px; color: var(--text-dim); margin-top: -4px;">
-            Tim GSR siap membantu kapan saja — karena setiap anggota komunitas berharga bagi kami.
-          </p>
-          <a href="support/" class="btn btn-detail" style="align-self: flex-start; margin-top: 8px;">
-            <span>Lihat Detail</span>
-            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- divider -->
-    <div class="divider"></div>
-
-    <!-- ════════════════════ FOOTER ════════════════════ -->
-    <footer class="footer" role="contentinfo">
+    <!-- ════════════ FOOTER ════════════ -->
+    <footer class="footer">
       <div class="container">
         <div class="footer-inner">
           <div class="footer-brand">
-            <img src="gsr_logo.png" alt="GSR" class="footer-logo-img" onerror="this.style.display='none';" />
-            <span class="footer-copy">© Game Seru – Rudolf &nbsp;·&nbsp; All rights reserved across the cosmos.</span>
+            <img src="../gsr_logo.png" alt="GSR" class="footer-logo-img" onerror="this.style.display='none';" />
+            <span class="footer-copy">© Game Seru – Rudolf · All rights reserved across the cosmos.</span>
           </div>
-          <nav class="footer-links" aria-label="Footer navigation">
-            <a href="#home">Home</a>
-            <a href="#identity">Identity</a>
-            <a href="#mascot">Mascot</a>
-            <a href="#logo">Logo</a>
-            <a href="#information">Information</a>
-            <a href="#community">Community</a>
-            <a href="#support">Support</a>
+          <nav class="footer-links">
+            <a href="../">Home</a>
+            <a href="../#information">Information</a>
+            <a href="../#community">Community</a>
+            <a href="../#support">Support</a>
           </nav>
         </div>
       </div>
     </footer>
 
-  </div><!-- /wrapper -->
+  </div>
 
-  <script src="script.js"></script>
+  <script src="../script.js"></script>
 </body>
 </html>
