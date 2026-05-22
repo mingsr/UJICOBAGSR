@@ -1,4 +1,3 @@
-cat << 'ENDOFFILE' > /mnt/user-data/outputs/style.css
 /* ════════════════════════════════════════════════════════════════
    GSR — Game Seru Rudolf  |  style.css  (v3)
    Shared stylesheet · all pages
@@ -1025,4 +1024,3 @@ img { max-width: 100%; display: block; }
   .btn-social            { justify-content: center; }
   .footer-socials-grid   { grid-template-columns: 1fr 1fr; }
 }
-ENDOFFILE
